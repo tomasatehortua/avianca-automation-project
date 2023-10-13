@@ -1,0 +1,6 @@
+{
+  "appium:deviceName": "emulator-5554",
+  "appium:appPackage": "com.example.myapplication",
+  "appium:appActivity": "com.example.myapplication.MainActivity",
+  "platformName": "Android"
+}

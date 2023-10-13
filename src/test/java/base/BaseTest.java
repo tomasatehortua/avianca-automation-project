@@ -6,6 +6,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.*;
 
+import java.time.Duration;
+
 public class BaseTest {
 
     public static WebDriver driver;
@@ -17,9 +19,11 @@ public class BaseTest {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
+//        options.addArguments("--headless=new");
+
 
         driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
+//        driver.manage().window().maximize();
         driver.get("https://www.avianca.com/co/es/");
     }
 
@@ -31,7 +35,10 @@ public class BaseTest {
 //        System.out.println("After test");
 //        driver.close();
 
-//        driver.quit();
+        driver.quit();
     }
 
+    public void onFailure(){
+
+    }
 }

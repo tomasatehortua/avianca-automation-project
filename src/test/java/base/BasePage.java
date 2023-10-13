@@ -18,10 +18,14 @@ public class BasePage {
         this.driver = driver;
     }
 
+    public void implicitWait(int seconds){
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(seconds));
+    }
+
     public FluentWait<WebDriver> fluentWait(int timeoutSec) {
-        return new FluentWait<>(driver).withTimeout(Duration.ofSeconds(timeoutSec))
-                .pollingEvery(Duration.ofMillis(
-                        Integer.parseInt("10000")))
+        return new FluentWait<>(driver)
+                .withTimeout(Duration.ofSeconds(timeoutSec))
+                .pollingEvery(Duration.ofMillis(500))
                 .ignoring(NoSuchElementException.class);
     }
 
